@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Button } from './index';
+import mdx from './Button.mdx';
 
 export default {
   title: 'Components/Button',
@@ -9,6 +10,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
@@ -29,6 +35,13 @@ Large.args = {
   size: 'large',
   label: 'Button',
 };
+
+export const Medium = Template.bind({});
+Medium.args = {
+  size: 'medium',
+  label: 'Button',
+};
+
 
 export const Small = Template.bind({});
 Small.args = {

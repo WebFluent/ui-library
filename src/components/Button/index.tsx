@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import { StyledButton } from './Button.styles';
 
 interface ButtonProps {
   /**
@@ -34,15 +34,16 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary ? 'primary' : 'secondary';
     return (
-      <button
+      <StyledButton
         type="button"
-        className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+        size={size}
+        mode={mode}
         style={{ backgroundColor }}
         {...props}
       >
         {label}
-      </button>
+      </StyledButton>
     );
 };
