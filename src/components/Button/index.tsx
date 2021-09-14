@@ -27,23 +27,32 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
-  primary = false,
-  size = 'medium',
+const Button = ({
+  primary,
+  size,
   backgroundColor,
   label,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'primary' : 'secondary';
-    return (
-      <StyledButton
-        type="button"
-        size={size}
-        mode={mode}
-        style={{ backgroundColor }}
-        {...props}
-      >
-        {label}
-      </StyledButton>
-    );
+  return (
+    <StyledButton
+      type="button"
+      size={size}
+      mode={mode}
+      style={{ backgroundColor }}
+      {...props}
+    >
+      {label}
+    </StyledButton>
+  );
 };
+
+Button.defaultProps = {
+  primary: true,
+  size: 'medium',
+  backgroundColor: 'blue',
+  onClick: () => {}
+};
+
+export default Button;

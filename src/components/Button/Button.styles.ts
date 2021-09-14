@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 interface StyledButtonProps {
   mode: string;
-  size: string;
+  size: string | any;
 }
 
 const isPrimary = (mode: string) => mode === 'primary';
 
-const StyledButton = styled.button<StyledButtonProps>`
+export const StyledButton = styled.button<StyledButtonProps>`
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
@@ -45,5 +45,3 @@ const StyledButton = styled.button<StyledButtonProps>`
     }
   }};
 `;
-
-export default StyledButton;
