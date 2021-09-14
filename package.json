@@ -20,7 +20,8 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./src",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "reset": "rm -r node_modules && npm ci"
   },
   "browserslist": {
     "production": [
