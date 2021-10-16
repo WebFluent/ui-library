@@ -21,7 +21,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     isPrimary(mode) ? '#1ea7fd' : 'transparent'};
   ${({ mode }) =>
     !isPrimary(mode) &&
-    `box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset`};
+    'box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset'};
 
   ${({ size }) => {
     switch (size) {
