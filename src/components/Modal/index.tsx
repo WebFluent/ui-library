@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import {
   ModalBackdrop,
   ModalContainer,
@@ -12,6 +12,7 @@ import {
 const defaultProps = {
   titleText: '',
   children: '',
+  disableOnClickOutside: false,
   Backdrop: ModalBackdrop,
   CloseButton: ModalCloseButton
 };
@@ -25,6 +26,8 @@ export type ModalProps = typeof defaultProps & {
   close: () => void;
   /** Text for modal title */
   titleText?: string;
+  /** Boolean to disable on click outside */
+  disableOnClickOutside?: boolean;
   /** A Styled Component to override the built-in Backdrop component */
   Backdrop?: typeof ModalBackdrop;
   /** A Styled Component to override the built-in CloseButton component */
@@ -36,12 +39,32 @@ export const Modal = ({
   close,
   titleText,
   children,
+  disableOnClickOutside,
   Backdrop,
   CloseButton
 }: ModalProps) => {
+  const closeOnClickOutside = useCallback(
+    (e: any) => {
+      if (!e.target.closest(ModalContainer)) {
+        close();
+      }
+    },
+    [close]
+  );
+
+  useEffect(() => {
+    if (!disableOnClickOutside && isOpen) {
+      document.addEventListener('click', closeOnClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', closeOnClickOutside);
+    };
+  }, [disableOnClickOutside, isOpen, closeOnClickOutside]);
+
   return isOpen ? (
     <Backdrop>
-      <ModalContainer>
+      <ModalContainer className="modal">
         <ModalTitleContainer>
           <ModalTitleText>{titleText}</ModalTitleText>
           <CloseButton onClick={close}>

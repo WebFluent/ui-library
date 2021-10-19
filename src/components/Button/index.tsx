@@ -17,7 +17,7 @@ interface ButtonProps {
   /**
    * Button contents
    */
-  label: string;
+  children?: any;
   /**
    * Optional click handler
    */
@@ -31,7 +31,7 @@ const Button = ({
   primary,
   size,
   backgroundColor,
-  label,
+  children,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'primary' : 'secondary';
@@ -43,7 +43,7 @@ const Button = ({
       style={{ backgroundColor }}
       {...props}
     >
-      {label}
+      {children}
     </StyledButton>
   );
 };
@@ -52,7 +52,8 @@ Button.defaultProps = {
   primary: true,
   size: 'medium',
   backgroundColor: 'blue',
-  onClick: () => {}
+  children: '',
+  onClick: () => ''
 };
 
 export default Button;

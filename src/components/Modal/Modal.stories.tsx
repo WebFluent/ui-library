@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import Button from '../Button';
 
 import Modal from './index';
 import mdx from './Modal.mdx';
@@ -21,19 +22,17 @@ export const Basic = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClose = () => setIsOpen(false);
   const handleOpen = () => setIsOpen(true);
-
-  const CloseBtn = (props: any) => (
-    <button type="button" {...props}>
-      close
-    </button>
-  );
+  const disableOnClickOutside = true;
 
   return (
     <>
-      <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button>
-      <Modal isOpen={isOpen} close={handleClose} titleText="Primary Modal">
+      <Button onClick={handleOpen}>Open Modal</Button>
+      <Modal
+        isOpen={isOpen}
+        close={handleClose}
+        titleText="Primary Modal"
+        disableOnClickOutside={disableOnClickOutside}
+      >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
