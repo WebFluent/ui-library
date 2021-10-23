@@ -63,11 +63,11 @@ export const Modal = ({
   }, [disableOnClickOutside, isOpen, closeOnClickOutside]);
 
   return isOpen ? (
-    <Backdrop>
-      <ModalContainer className="modal">
+    <Backdrop data-testid="modal-backdrop">
+      <ModalContainer data-testid="modal">
         <ModalTitleContainer>
           <ModalTitleText>{titleText}</ModalTitleText>
-          <CloseButton onClick={close}>
+          <CloseButton onClick={close} data-testid="modal-close-button">
             <CloseIcon />
           </CloseButton>
         </ModalTitleContainer>
