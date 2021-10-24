@@ -14,7 +14,8 @@ const defaultProps = {
   children: '',
   disableOnClickOutside: false,
   Backdrop: ModalBackdrop,
-  CloseButton: ModalCloseButton
+  CloseButton: ModalCloseButton,
+  Container: ModalContainer
 };
 
 export type ModalProps = typeof defaultProps & {
@@ -32,6 +33,8 @@ export type ModalProps = typeof defaultProps & {
   Backdrop?: typeof ModalBackdrop;
   /** A Styled Component to override the built-in CloseButton component */
   CloseButton?: typeof ModalCloseButton;
+  /** A Styled Component to override the built-in CloseButton component */
+  Container?: typeof ModalContainer;
 };
 
 export const Modal = ({
@@ -41,7 +44,8 @@ export const Modal = ({
   children,
   disableOnClickOutside,
   Backdrop,
-  CloseButton
+  CloseButton,
+  Container
 }: ModalProps) => {
   const closeOnClickOutside = useCallback(
     (e: any) => {
@@ -64,7 +68,7 @@ export const Modal = ({
 
   return isOpen ? (
     <Backdrop data-testid="modal-backdrop">
-      <ModalContainer data-testid="modal">
+      <Container data-testid="modal">
         <ModalTitleContainer>
           <ModalTitleText>{titleText}</ModalTitleText>
           <CloseButton onClick={close} data-testid="modal-close-button">
@@ -72,7 +76,7 @@ export const Modal = ({
           </CloseButton>
         </ModalTitleContainer>
         <ModalContentContainer>{children}</ModalContentContainer>
-      </ModalContainer>
+      </Container>
     </Backdrop>
   ) : null;
 };

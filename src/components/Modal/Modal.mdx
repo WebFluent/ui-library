@@ -4,19 +4,42 @@ import Modal from '.';
 
 ## Modal
 
-Modal is the primary component.
+Some general description about modals.
 
 - [Primary](#primary)
+- [Custom](#customize)
 
-## Properties
-
-<ArgsTable of={Modal} />
-
+<br />
 
 ## Usage
 
+<br />
+
 ### Basic
+
+The modal in its most basic form takes in a `isOpen` boolean flag to control the open state of the modal and a `close` function to set the `isOpen` state to false. 
+It also takes in `children` and renders it in the modal container.
 
 <Canvas>
   <Story id="components-modal--basic" />
 </Canvas>
+
+### Customize
+
+You can completely customize the modal by passing in styled components through props to overide core components of the modal. Here is a list of the core components that are interchangable.
+
+<ul>
+  <li>Backdrop</li>
+  <li>CloseButton</li>
+  <li>Container</li>
+</ul>
+
+<Canvas>
+  <Story id="components-modal--custom" />
+</Canvas>
+
+<br/>
+
+## Properties
+
+<ArgsTable of={Modal} />
