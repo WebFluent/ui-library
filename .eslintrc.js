@@ -3,30 +3,30 @@ module.exports = {
   env: {
     es6: true,
     browser: true,
-    node: true,
+    node: true
   },
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     useJSXTextNode: true,
-    tsconfigRootDir: './',
+    tsconfigRootDir: './'
   },
   rules: {
     'prettier/prettier': [
       'error',
       {
-        endOfLine: 'auto',
-      },
+        endOfLine: 'auto'
+      }
     ],
     'linebreak-style': 'off',
     'react/jsx-filename-extension': 'off',
     'react/destructuring-assignment': [
       1,
       'always',
-      { ignoreClassFields: true },
+      { ignoreClassFields: true }
     ],
     'react/prop-types': 'off',
     'react/static-property-placement': 'off',
@@ -40,14 +40,14 @@ module.exports = {
     'import/no-cycle': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'import/no-unresolved': 'warn',
     'no-underscore-dangle': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-use-before-define': [
       'error',
-      { classes: false, variables: false },
+      { classes: false, variables: false }
     ],
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
@@ -62,9 +62,9 @@ module.exports = {
         js: 'never',
         jsx: 'never',
         ts: 'never',
-        tsx: 'never',
-      },
-    ],
+        tsx: 'never'
+      }
+    ]
   },
   plugins: [
     '@typescript-eslint',
@@ -72,7 +72,7 @@ module.exports = {
     'jsx-a11y',
     'import',
     'prettier',
-    'jest',
+    'jest'
   ],
   extends: [
     'airbnb',
@@ -81,31 +81,31 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   overrides: [
     {
       files: ['*.js'],
       rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
+        '@typescript-eslint/no-var-requires': 'off'
+      }
     },
     {
       files: ['*.ts', '*.tsx'],
       rules: {
         'react/prop-types': 'off',
         'no-useless-constructor': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-      },
-    },
+        '@typescript-eslint/no-explicit-any': 'off'
+      }
+    }
   ],
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
-      'babel-eslint': ['.js', '.jsx'],
+      'babel-eslint': ['.js', '.jsx']
     },
     'import/resolver': {
-      typescript: {},
-    },
-  },
+      typescript: {}
+    }
+  }
 };

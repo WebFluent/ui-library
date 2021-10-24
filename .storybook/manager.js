@@ -12,13 +12,13 @@ addons.setConfig({
   initialActive: 'sidebar',
   sidebar: {
     showRoots: false,
-    collapsedRoots: ['other'],
+    collapsedRoots: ['other']
   },
   toolbar: {
-    title: { hidden: false, },
-    zoom: { hidden: false, },
-    eject: { hidden: false, },
-    copy: { hidden: false, },
-    fullscreen: { hidden: false, },
-  },
+    title: { hidden: false },
+    zoom: { hidden: false },
+    eject: { hidden: false },
+    copy: { hidden: false },
+    fullscreen: { hidden: false }
+  }
 });
